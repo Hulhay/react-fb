@@ -1,14 +1,14 @@
 import React from 'react'
 import { FaRegTrashAlt } from 'react-icons/fa'
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleComplete, deleteTodo }) => {
     return (
-        <li className="li">
+        <li className={todo.is_completed ? "li-complete" : "li"}>
             <div className="row">
-                <input type="checkbox" />
-                <p className="text">{todo}</p>
+                <input onChange={() => toggleComplete(todo)} type="checkbox" checked={todo.is_completed ? "checked" : ""} />
+                <p onClick={() => toggleComplete(todo)} className={todo.is_completed ? "text-complete" : "text"}>{todo.text}</p>
             </div>
-            <button>{<FaRegTrashAlt />}</button>
+            <button onClick={() => deleteTodo(todo.id)}>{<FaRegTrashAlt />}</button>
         </li>
     )
 }

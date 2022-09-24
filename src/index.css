@@ -19,7 +19,7 @@
 }
 
 .input {
-    @apply border p-2 w-full text-xl
+    @apply border outline-none p-2 w-full text-xl
 }
 
 .button {
